@@ -7,8 +7,8 @@ class Home extends StatelessWidget {
     return MaterialApp(
         home: new LogInPage(),
         theme: new ThemeData(
-          primaryColor: Colors.blue,
-          accentColor: Colors.pink,
+          primaryColor: Colors.purple[1000],
+          accentColor: Colors.white10,
         ));
   }
 }
@@ -33,7 +33,9 @@ class _LogInPageState extends State<LogInPage> {
         body: Container(
       decoration: BoxDecoration(
           gradient: LinearGradient(
-        colors: [Colors.red, Colors.purpleAccent],
+        colors: [Theme.of(context).primaryColor, Theme.of(context).accentColor],
+        end: Alignment.topCenter,
+        begin:Alignment.bottomCenter,
       )),
       margin: EdgeInsets.all(0),
       padding: EdgeInsets.only(top: 400, right: 50, left: 50),
@@ -67,7 +69,8 @@ class _LogInPageState extends State<LogInPage> {
                     obscureText: true,
                   ),
                   RaisedButton(
-                    onPressed: () => UnAuth(),
+                    onPressed: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => UnAuth())),
                     child: Text("login"),
                   ),
                 ],
